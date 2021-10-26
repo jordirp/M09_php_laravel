@@ -1,5 +1,7 @@
 <?php
 
+namespace Framework\Database;
+
 class Database{
 
     public $config;
@@ -10,7 +12,7 @@ class Database{
     public function __construct($config)
     {
         $this->config = $config;
-        $this->config = new Connection($config);
+        $this->config = new Connection();
     }
 
     function  selectAll($table) {
