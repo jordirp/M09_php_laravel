@@ -7,11 +7,28 @@ var_dump($task);
 //Query string
 //var_dump ($_GET['name']);
 //$name = 'Sergi';
-$user = "debian-sys-maint";
-$pass= "3UfvEqjO8ixjy0Rh";
+
+
+$config = [
+    'database' => [
+        'user' =>'debian-sys-maint',
+        'password' =>'ri48e17r9cfJIqGu',
+        'databasetype' =>'mysql',
+        'host' =>'localhost',
+        'name' =>'phplaraveldevs',
+    ]
+];
+
+
+$user = $config ['database']['user'];
+$pass=  $config ['database']['password'];
+$type=  $config ['database']['databasetype'];
+$host=  $config ['database']['host'];
+$dbname=  $config ['database']['phplaraveldevs'];
+$dsn ="$type: host= $host;dbname =$dbname";
 
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=phplaraveldevs',$user,$pass);
+    $dbh = new PDO($dsn,$user,$pass);
 
 }catch (\Exception $e) {
     echo 'Error de conexió base de dades';
@@ -22,8 +39,6 @@ $statement-> execute();
 $task=$statement-> fetch(PDO::FETCH_CLASS,'Tasks');
 
 var_dump($task);
-
-
 
 $greeting = greet();
 
