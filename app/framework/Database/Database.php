@@ -2,6 +2,9 @@
 
 namespace Framework\Database;
 
+use app\Models\Task;
+use PDO;
+
 class Database{
 
     public $config;
@@ -16,9 +19,14 @@ class Database{
     }
 
     function  selectAll($table) {
-        return fetchAllTask($this->connection >connectDB($this ->config));
+        $dbh = $this -> $this->connection >connectDB($this ->config);
+        $statement = $dbh -> prepare("SELECT * FROM $table");
+        $statement-> execute();
+        return $statement-> fetch(PDO::FETCH_CLASS,Task::class);
+
 
     }
+
     function insert(){
         //TODO
     }

@@ -6,6 +6,7 @@ require 'config.php';
 require 'app/helpers.php';
 require 'app/Models/Task.php';
 require 'framework/Database/Database.php';
+require 'framework/Database/Connection.php';
 
 
 $database = new Database($config);
