@@ -1,16 +1,11 @@
 <?php
 
-use Framework\Database\Database;
 
-require 'config.php';
 require 'app/helpers.php';
-require 'app/Models/Task.php';
-require 'framework/Database/Database.php';
-require 'framework/Database/Connection.php';
 
+$tasks = App::get('database')::selectAll('tasks');
 
-$database = new Database($config);
-$tasks = $database -> selectAll('tasks');
+//$database = new Database(App::get('config'));
 /*$tasks = Database::selectAll('tasks');*/
 /*$tasks = Task::selectAll('tasks'); */
 

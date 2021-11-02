@@ -7,22 +7,16 @@ use PDO;
 
 class Database{
 
-    public $config;
-    private $connection;
-    /**
-     * @param $config
-     */
-    public function __construct($config)
+    private static $pdo;
+    public function make($pdo)
     {
-        $this->config = $config;
-        $this->config = new Connection();
+        $this -> pdo = $pdo;
     }
 
-    function  selectAll($table) {
-        $dbh = $this -> $this->connection >connectDB($this ->config);
-        $statement = $dbh -> prepare("SELECT * FROM $table");
+    public function  selectAll($table) {
+        $statement = $this-> pdo-> prepare("SELECT * FROM $table;");
         $statement-> execute();
-        return $statement-> fetch(PDO::FETCH_CLASS,Task::class);
+        return $statement-> fetch(PDO::FETCH_CLASS);
 
 
     }
