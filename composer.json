@@ -15,5 +15,7 @@
             "email": "jordirodriguez2@iesebre.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    }
 }
