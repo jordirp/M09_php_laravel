@@ -1,6 +1,6 @@
 <?php
 
-use framework\App;
+use Framework\App;
 use Framework\Database\Connection;
 use Framework\Database\Database;
 
